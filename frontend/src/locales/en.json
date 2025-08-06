@@ -1,0 +1,58 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "credits": "Credits",
+    "availableCredits": "Available Credits",
+    "apply": "Apply",
+    "checkout": "Checkout",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "backToStore": "Back to Store"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "merchStore": "Merch Store",
+    "adminMetrics": "Admin Metrics",
+    "laneConsole": "Lane Console"
+  },
+  "merch": {
+    "title": "Merchandise Store",
+    "applyCredits": "Apply Credits",
+    "maxCredits": "Max Credits",
+    "subtotal": "Subtotal",
+    "shipping": "Shipping",
+    "tax": "Tax",
+    "total": "Total",
+    "creditsApplied": "Credits Applied",
+    "cashPayment": "Cash Payment",
+    "completeOrder": "Complete Order",
+    "orderConfirmed": "Order Confirmed!",
+    "thankYou": "Thank you for your purchase"
+  },
+  "admin": {
+    "metrics": {
+      "title": "Admin Metrics",
+      "bursts": "Bursts",
+      "wins": "Wins",
+      "purchases": "Purchases",
+      "redemptions": "Redemptions",
+      "referrals": "Referrals",
+      "timeRange": "Time Range",
+      "daily": "Daily",
+      "weekly": "Weekly",
+      "monthly": "Monthly"
+    },
+    "lanes": {
+      "title": "Lane Console",
+      "impact": "Impact Score",
+      "filter": "Filter",
+      "state": "State",
+      "ok": "OK",
+      "watchlist": "Watchlist",
+      "save": "Save",
+      "archive": "Archive",
+      "updateState": "Update State"
+    }
+  }
+}
