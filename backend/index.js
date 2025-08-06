@@ -69,3 +69,4 @@ mongoose
 
 // ✅ Export the handler for Vercel
 module.exports = app;
+module.exports.handler = serverless(app); // for Vercel
