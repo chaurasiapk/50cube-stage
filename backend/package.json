@@ -2,10 +2,10 @@
   "name": "50cube-backend",
   "version": "1.0.0",
   "description": "Backend for 50cube.com",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon server.js",
+    "dev": "nodemon index.js",
     "seed":  "node seed.js"
   },
   "dependencies": {
