@@ -18,9 +18,9 @@ app.use(express.json());
 
 /* ------------------- ROUTES ------------------- */
 
-app.use('/api/merch', require('./routes/merchRoutes'));
-app.use('/api/admin', require('./routes/adminRoutes'));
-app.use('/api/user', require('./routes/userRoutes'));
+app.use('/api/merch', require('../routes/merchRoutes'));
+app.use('/api/admin', require('../routes/adminRoutes'));
+app.use('/api/user', require('../routes/userRoutes'));
 
 /* ------------------- ERROR HANDLING ------------------- */
 
