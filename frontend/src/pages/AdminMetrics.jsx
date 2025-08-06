@@ -12,9 +12,18 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
+import { useUser } from "../context/UserContext";
 
 // Register necessary chart elements
-ChartJS.register(CategoryScale, LinearScale, PointElement, BarElement, LineElement, Tooltip, Legend);
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  BarElement,
+  LineElement,
+  Tooltip,
+  Legend
+);
 
 /**
  * Renders the admin metrics chart (bar chart visualization)
@@ -79,6 +88,8 @@ const AdminMetrics = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const { user } = useUser();
+
   /**
    * Fetches metrics data based on selected time range
    */
@@ -94,7 +105,7 @@ const AdminMetrics = () => {
         else if (timeRange === "monthly") since.setDate(now.getDate() - 30);
         else since.setDate(now.getDate() - 1); // default daily
 
-        const response = await getAdminMetrics(since.toISOString());
+        const response = await getAdminMetrics(since.toISOString(), user.email);
         setMetrics(response.data);
         setLoading(false);
       } catch (err) {
@@ -106,8 +117,10 @@ const AdminMetrics = () => {
     fetchMetrics();
   }, [timeRange, t]);
 
-  if (loading) return <div className="text-center py-10">{t("common.loading")}</div>;
-  if (error) return <div className="text-center py-10 text-red-600">{error}</div>;
+  if (loading)
+    return <div className="text-center py-10">{t("common.loading")}</div>;
+  if (error)
+    return <div className="text-center py-10 text-red-600">{error}</div>;
 
   const rangeButtons = ["daily", "weekly", "monthly"];
 
@@ -122,7 +135,9 @@ const AdminMetrics = () => {
               key={range}
               onClick={() => setTimeRange(range)}
               className={`px-4 py-2 rounded-md ${
-                timeRange === range ? "bg-blue-600 text-white" : "bg-gray-200 text-gray-700"
+                timeRange === range
+                  ? "bg-blue-600 text-white"
+                  : "bg-gray-200 text-gray-700"
               }`}
             >
               {t(`admin.metrics.${range}`)}
@@ -133,12 +148,18 @@ const AdminMetrics = () => {
 
       {/* Metric Summary Tiles */}
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-8">
-        {["bursts", "wins", "purchases", "redemptions", "referrals"].map((key) => (
-          <div key={key} className="bg-white p-4 rounded-md shadow-md">
-            <h3 className="text-sm text-gray-500 mb-1">{t(`admin.metrics.${key}`)}</h3>
-            <p className="text-2xl font-bold">{metrics[key]?.toLocaleString()}</p>
-          </div>
-        ))}
+        {["bursts", "wins", "purchases", "redemptions", "referrals"].map(
+          (key) => (
+            <div key={key} className="bg-white p-4 rounded-md shadow-md">
+              <h3 className="text-sm text-gray-500 mb-1">
+                {t(`admin.metrics.${key}`)}
+              </h3>
+              <p className="text-2xl font-bold">
+                {metrics[key]?.toLocaleString()}
+              </p>
+            </div>
+          )
+        )}
       </div>
 
       {/* Metrics Chart */}

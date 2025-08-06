@@ -39,9 +39,9 @@ api.interceptors.request.use(
 
 /**
  * Fetches the user profile based on email
- * 
+ *
  * @param {string} email - User's email address
- * 
+ *
  * NOTE: In a real-world application, this endpoint should be protected.
  * The server should authenticate the request using a token (e.g. JWT)
  * and extract the user identity from the token instead of relying on
@@ -75,8 +75,8 @@ export const redeemMerch = (data) => api.post("/merch/redeem", data);
  * Fetches admin metrics since a given timestamp
  * @param {string} since - ISO timestamp or date string
  */
-export const getAdminMetrics = (since) =>
-  api.get(`/admin/metrics?since=${since}`);
+export const getAdminMetrics = (since, email) =>
+  api.get(`/admin/metrics?since=${since}&email=${email}`);
 
 // ================= LANE CONSOLE API =================
 
