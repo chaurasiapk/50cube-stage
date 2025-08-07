@@ -3,6 +3,7 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useUser } from "../context/UserContext";
 import Cookies from "js-cookie";
+import logoIcon from "../assets/icon.png"; // Better than using a hardcoded path
 
 // Navigation items (conditionally rendered based on admin role)
 const navItems = [
@@ -60,7 +61,7 @@ const Header = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
             <img
-              src="/src/assets/icon.png"
+              src={logoIcon}
               alt="50cube Logo"
               className="w-10 lg:w-14 h-10 lg:h-14"
             />
